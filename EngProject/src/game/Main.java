@@ -109,10 +109,10 @@ public class Main {
 	/**
 	 * This function controls if the flies have to move or not
 	 * 
-	 * @param r1 Row 1
-	 * @param c1 Column 1
-	 * @param r2 Row 2
-	 * @param c2 Column 2
+	 * @param r1 Row 1 (Player)
+	 * @param c1 Column 1 (Player)
+	 * @param r2 Row 2 (Fly)
+	 * @param c2 Column 2 (Fly)
 	 * @return true if there's a fly (r2,c2) next to the position (r1,c1) selected
 	 */
 	private static boolean isNextTo(int r1, int c1, int r2, int c2) {
