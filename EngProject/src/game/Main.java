@@ -6,8 +6,10 @@ public class Main {
 
 	// Main for board initialize and game execution
 	public static void main(String[] args) {
+		// Creamos el tablero
+		Game game = new Game();
 		// We call the method to initialize the board
-		Game.initializeBoard();
+		game.initializeBoard();
 		// Set the scanner
 		Scanner scanner = new Scanner(System.in);
 		// Counter for flies caught
@@ -15,24 +17,24 @@ public class Main {
 
 		// Loop that controls that the game continues while there are still flies to
 		// catch
-		while (fliesCaught < Game.kFlies) {
+		while (fliesCaught < game.getkFlies()) {
 			System.out.println("Enter your guess (row and column): ");
 			int row = scanner.nextInt();
 			int col = scanner.nextInt();
 
-			if (Game.board[row][col] == 'F') {
+			if (game.board[row][col] == 'F') {
 				System.out.println("You caught a fly!");
-				Game.board[row][col] = '-';
+				game.board[row][col] = '-';
 				fliesCaught++;
 				System.out.println("But maybe Flies have moved...");
-				Game.moveFlies(row, col);
+				game.moveFlies(row, col);
 			} else {
 				System.out.println();
 				System.out.println("Miss! Flies might have moved...");
-				Game.moveFlies(row, col);
+				game.moveFlies(row, col);
 			}
 
-			Game.showBoard();
+			game.showBoard();
 		}
 
 		System.out.println("Congratulations! You caught all the flies!");

@@ -5,17 +5,16 @@ import java.util.Random;
 public class Game {
 
 	// Board (size)
-	static char[][] board = new char[10][10];
+	char[][] board = new char[10][10];
 	// NUMBER OF FLIES
 	static int kFlies = 5;
-	// Random
-	private static Random random = new Random();
 
 	/**
 	 * This function initializes the board, by filling it with empty spaces ('-')
 	 * and flies
 	 */
-	public static void initializeBoard() {
+	public void initializeBoard() {
+		Random random = new Random();
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
 				board[i][j] = '-'; // Empty space
@@ -31,10 +30,14 @@ public class Game {
 		}
 	}
 
+	public int getkFlies() {
+		return kFlies;
+	}
+
 	/**
 	 * This function prints the board
 	 */
-	public static void showBoard() {
+	public void showBoard() {
 		System.out.println();
 		for (char[] row : board) {
 			for (char cell : row) {
@@ -50,7 +53,8 @@ public class Game {
 	 * @param playerRow La fila de las coordenadas seleccionadas por el jugador
 	 * @param playerCol La columna de las coordenadas seleccionadas por el jugador
 	 */
-	public static void moveFlies(int playerRow, int playerCol) {
+	public void moveFlies(int playerRow, int playerCol) {
+		Random random = new Random();
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
 				// Finds all flys during the loop and check if any of them is next to the player
